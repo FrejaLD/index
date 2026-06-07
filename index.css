@@ -7,8 +7,8 @@
 
 .card {
     display: flex; 
-    justify-content: center;
-    align-items: center;
+    justify-content: center !important;
+    align-items: center !important;
     flex-direction: column; 
     border-radius: 5px  5px 5px 5px;
     width: 220px;
