@@ -1,3 +1,8 @@
+.col-md-9 {
+    background: #bdbdbd;
+    min-height: 800px;
+    padding-top: 25px;
+}
 
 .card {
     display: flex; 
