@@ -21,6 +21,11 @@ body {
   padding: 0 !important;
 }
 
+@media only screen and (max-width: 798px) {
+  ul {
+    display: block;
+  }
+
 ul {
   list-style-type: none;
   margin: 0;
