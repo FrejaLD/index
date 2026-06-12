@@ -75,6 +75,10 @@ body {
 
 /*| Navigation |*/
 
+@media only screen and (max-width: 798px) {
+  .nav {
+    display: block;
+  }
 
 nav{
   position: fixed;
