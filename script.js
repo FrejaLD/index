@@ -1,19 +1,16 @@
-const backToTopButton = document.getElementById("backToTopBtn");
-
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    // Show button if scrolled down 300px
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        backToTopButton.classList.add("show");
+$(document).ready(function() {
+  $('.go-top').hide(0)
+  
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 100){
+      $('.go-top').fadeIn(200);      
     } else {
-        backToTopButton.classList.remove("show");
+      $('.go-top').fadeOut(300);
     }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-backToTopButton.addEventListener("click", function() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+  });
+  $('.go-top').click(function() {
+    event.preventDefault();
+    
+    $('html , body').animate({scrollTop: 0}, 1000);
+  });
+});
