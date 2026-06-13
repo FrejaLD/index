@@ -1,18 +1,33 @@
-// Get the button
-let mybutton = document.getElementById("backToTopBtn");
+(function ($) {
+  'use strict';
 
-// When the user scrolls down 300px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+  // Elevator - Scroll back to top utility JS
+  // ========================================
 
-function scrollFunction() {
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    mybutton.classList.add("show");
-  } else {
-    mybutton.classList.remove("show");
-  }
-}
+  // append necessary class
+  // should have already contain wrapper on a page.
+  // <div class="elevator-wrapper"></div>
+  $('.elevator-wrapper').append('<div class="elevator"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>');
 
-// When the user clicks on the button, scroll to the top of the document
-mybutton.addEventListener("click", function(){
-  window.scrollTo({top: 0, behavior: 'smooth'});
-});
+  // browser window scroll (in pixels) after which the "back to top" link is shown
+  var offset = 300,
+    // duration of the top scrolling animation (in ms)
+    scroll_top_duration = 700,
+    // grab the "back to top" link
+    $back_to_top = $('.elevator');
+
+  // hide or show the "back to top" link
+  $(window).scroll(function () {
+    ($(this).scrollTop() > offset) ? $back_to_top.addClass('elevator-is-visible') : $back_to_top.removeClass('elevator-is-visible');
+  });
+
+  // smooth scroll to top
+  $back_to_top.on('click', function (event) {
+    event.preventDefault();
+    $('body,html').animate({
+      scrollTop: 0
+      }, scroll_top_duration
+    );
+  });
+
+})(jQuery);
