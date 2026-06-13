@@ -16,16 +16,28 @@ body {
 }
 
 
-.go-top {
-  right:1em;
-  bottom:2em;
-  color:#FAFAFA;
-  text-decoration:none;
-  background:#F44336;
-  padding:5px;
-  border-radius:5px;
-  border:1px solid #e0e0e0;
-  position:fixed;
+#back-top {
+  position: fixed; 
+  display:none; 
+  font-size: 50px;
+  color: #fff;
+  mix-blend-mode: difference;
+  bottom: 5px; 
+  right:10px; 
+  width:auto;
+}
+a#back-top:active {
+  background:none;
+}
+a#back-top {
+  display: block; 
+  text-decoration: none;
+}
+.topup {
+  bottom:5px;
+}
+#back-top i {
+  display: block;
 }
 
 
