@@ -11,15 +11,24 @@ body {
 			background-repeat:  no-repeat;
 			background-attachment: fixed;
 			background-size:  cover;
-			background-color: #999;
-  
+			background-color: #999; 
 }
 
+
+.card-container{
+  max-width: 1500px;
+  margin: 20px auto 0 auto;
+  background: #fff;
+}
+
+
+
+
 #menu {
-	background: #0099CC;
+	background: #3B3B3B;
 	height: 45px;
-	padding-left: 18px;
-	border-radius: 10px;
+	border-radius: 0px;
+	border-bottom: 1px solid #FFFFFF;
 }
 #menu ul, #menu li {
 	margin: 0 auto;
@@ -28,7 +37,7 @@ body {
 }
 #menu ul {
 	width: 100%;
-	text-align: left;
+	text-align: center;
 }
 #menu li {
 	display: inline-block;
@@ -36,19 +45,19 @@ body {
 }
 #menu a {
 	display: block;
-	line-height: 45px;
-	padding: 0 14px;
+	line-height: 43px;
+	padding: 0 25px;
 	text-decoration: none;
 	color: #FFFFFF;
-	font-size: 16px;
+	font-size: 18px;
 }
 #menu a.dropdown-arrow:after {
-	content: "\25BE";
+	content: "\25BF";
 	margin-left: 5px;
 }
 #menu li a:hover {
-	color: #0099CC;
-	background: #F2F2F2;
+	color: #FFFFFF;
+	background: #D9BAC7;
 }
 #menu input {
 	display: none;
@@ -61,7 +70,7 @@ body {
 }
 #menu label {
 	display: none;
-	line-height: 45px;
+	line-height: 43px;
 	text-align: center;
 	position: absolute;
 	left: 35px
@@ -76,7 +85,7 @@ body {
 	height: auto;
 	overflow: hidden;
 	width: 170px;
-	background: #444444;
+	background: #8B90AD;
 	position: absolute;
 	z-index: 99;
 	display: none;
@@ -88,18 +97,18 @@ body {
 }
 #menu ul.sub-menus a {
 	color: #FFFFFF;
-	font-size: 16px;
+	font-size: 15px;
 }
 #menu li:hover ul.sub-menus {
 	display: block
 }
 #menu ul.sub-menus a:hover{
-	background: #F2F2F2;
-	color: #444444;
+	background: #D9BAC7;
+	color: #FFFFFF;
 }
 @media screen and (max-width: 800px){
 	#menu {position:relative}
-	#menu ul {background:#444444;position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none;text-align:left;}
+	#menu ul {background:#3b3b3b;position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none;text-align:left;}
 	#menu ul.sub-menus {width:100%;position:static;}
 	#menu ul.sub-menus a {padding-left:30px;}
 	#menu li {display:block;float:none;width:auto;}
@@ -109,6 +118,7 @@ body {
 	#menu input:checked + label:before {content:"\00d7"}
 	#menu input:checked ~ ul {display:block}
 }
+
 
 
 
