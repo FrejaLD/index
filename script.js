@@ -1,14 +1,16 @@
-var btn = $('#button');
+const backToTopButton = document.getElementById("backToTopBtn");
 
-$(window).scroll(function() {
-  if ($(window).scrollTop() > 300) {
-    btn.addClass('show');
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTopButton.classList.add("show");
   } else {
-    btn.removeClass('show');
+    backToTopButton.classList.remove("show");
   }
 });
 
-btn.on('click', function(e) {
-  e.preventDefault();
-  $('html, body').animate({scrollTop:0}, '300');
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 });
