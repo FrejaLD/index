@@ -1,10 +1,8 @@
 * {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
 
-html, body{
-  height: 100%;
-}
+
 body { 
   background-color: #1e1e2e;
   background-image:
@@ -15,95 +13,54 @@ body {
 }
 
 
+
 .container{
-background: rgba(255, 255, 255, 0.09);
-backdrop-filter: blur(8px);
--webkit-backdrop-filter: blur(8px);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+  min-width: 90% !important;
+    max-width: 100%;
+  background: #2a313ba6 !important;
+  color: #bfbfbf;
+    border: 1px solid #ffffff42;
+    box-shadow: none !important;
+}
+
+@media screen and (max-width: 800px) {
+  .container{
+    width: 100% !important;
+  }
 }
 
 
-
-.section-title {
-  max-width: 1500px;
-  margin: 0px auto;
-  padding: 15px;
-  text-align: center;
+hr{
+border-top: 1px solid #8c8b8b;
 }
 
-.section-title h1 {
-  font-size: 24px;
-  text-transform: none;
-  color: #d9bac7;
-}
 
-.section-title .divider {
-  position: relative;
-  border-bottom: 1px solid #f0f0f0;
-  margin-bottom: 30px;
-  margin-top: 30px;
-}
-
-.section-title .divider:before {
-  position: absolute;
-  content: '';
-  width: 30px;
-  height: 30px;
-  border: 1px solid #f0f0f0;
-  left: 50%;
-  margin-left: -15px;
-  top: 50%;
-  background: #fff;
-  margin-top: -15px;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.section-title .divider:after {
-  position: absolute;
-  content: '';
-  width: 20px;
-  height: 20px;
-  border: 1px solid #d9bac7;
-  left: 50%;
-  margin-left: -10px;
-  top: 50%;
-  background: #8b90ad;
-  margin-top: -10px;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
 
 
 
 
 #menu {
-	background: #3B3B3B;
+	background: #2a313ba6;
 	height: 45px;
 	border-radius: 0px;
-	border-bottom: 1px solid #FFFFFF;
+    border-bottom: none; 
+    
 }
 
 @media screen and (max-width: 800px){
-	/* FIX: Allow the menu container height to auto-expand */
 	#menu {
 		position: relative;
 		height: auto; 
 		min-height: 45px;
 	}
 	
-	/* FIX: Changed position to relative so it occupies physical space */
+	
 	#menu ul {
 		background: #3b3b3b;
 		position: relative;
 		clear: both;
-		padding-top: 45px; /* Creates room for the absolute hamburger icon */
+		padding-top: 45px;
 		z-index: 3;
 		height: auto;
 		display: none;
@@ -125,7 +82,6 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 		width: auto;
 	}
 	
-	/* Keeps the hamburger button locked to the top 45px header bar */
 	#menu input, #menu label {
 		position: absolute;
 		top: 0;
@@ -159,6 +115,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 #menu ul {
 	width: 100%;
 	text-align: center;
+    border-bottom: 1px solid #ffffff42 !important;
 }
 #menu li {
 	display: inline-block;
