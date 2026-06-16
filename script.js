@@ -15,21 +15,37 @@ backToTopButton.addEventListener("click", () => {
   });
 });
 
-function updatemenu() {
-  if (document.getElementById('responsive-menu').checked == true) {
-    document.getElementById('menu').style.borderBottomRightRadius = '0';
-    document.getElementById('menu').style.borderBottomLeftRadius = '0';
-  }else{
-    document.getElementById('menu').style.borderRadius = '0px';
-  }
-}
 
-/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
+
+// Mobile menu toggle
+document.getElementById('gen-ham').addEventListener('click', function() {
+  var nav = document.getElementById('gen-nav');
+  var menu = document.getElementById('gen-menu');
+  var isOpen = menu.classList.toggle('open');
+  nav.classList.toggle('mobile-open', isOpen);
+});
+ 
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+  var nav = document.getElementById('gen-nav');
+  var menu = document.getElementById('gen-menu');
+  if (!nav.contains(e.target) && menu.classList.contains('open')) {
+    menu.classList.remove('open');
+    nav.classList.remove('mobile-open');
   }
-}
+});
+
+// Mobile collapsed submenu toggle
+document.querySelectorAll('#gen-menu > li.has-sub > a').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    // Only intercept on mobile (hamburger visible)
+    var ham = document.getElementById('gen-ham');
+    if (ham && getComputedStyle(ham).display !== 'none') {
+      e.preventDefault();
+      var li = a.parentElement;
+      li.classList.toggle('sub-open');
+      var sub = li.querySelector('ul');
+      if (sub) sub.classList.toggle('sub-open');
+    }
+  });
+});
