@@ -216,64 +216,71 @@ hr.style2:before {
 }
 
 
-/* Add a black background color to the top navigation */
-.topnav {
-  position: relative;
-  background-color: #333;
-  overflow: hidden;
-}
+<div class="bg-black text-white font-['Space_Grotesk'] overflow-x-hidden">
+    <!-- Background elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-20 left-10 w-96 h-96 bg-indigo-900/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-purple-900/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-40 right-20 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl"></div>
+        
+        <!-- Decorative grid lines -->
+        <div class="absolute inset-0 grid grid-cols-12 opacity-5 pointer-events-none">
+            <div class="border-r border-cyan-500"></div>
+            <div class="border-r border-cyan-500"></div>
+            <div class="border-r border-cyan-500"></div>
+            <div class="border-r border-cyan-500"></div>
+            <div class="border-r border-cyan-500"></div>
+            <div class="border-r border-cyan-500"></div>
+            <div class="border-r border-cyan-500"></div>
+            <div class="border-r border-cyan-500"></div>
+            <div class="border-r border-cyan-500"></div>
+            <div class="border-r border-cyan-500"></div>
+            <div class="border-r border-cyan-500"></div>
+            <div class="border-r border-cyan-500"></div>
+        </div>
+        <div class="absolute inset-0 grid grid-rows-12 opacity-5 pointer-events-none">
+            <div class="border-b border-cyan-500"></div>
+            <div class="border-b border-cyan-500"></div>
+            <div class="border-b border-cyan-500"></div>
+            <div class="border-b border-cyan-500"></div>
+            <div class="border-b border-cyan-500"></div>
+            <div class="border-b border-cyan-500"></div>
+            <div class="border-b border-cyan-500"></div>
+            <div class="border-b border-cyan-500"></div>
+            <div class="border-b border-cyan-500"></div>
+            <div class="border-b border-cyan-500"></div>
+            <div class="border-b border-cyan-500"></div>
+            <div class="border-b border-cyan-500"></div>
+        </div>
+    </div>
 
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-gray-900/70 backdrop-blur-lg border-b border-cyan-500/30 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="relative mr-2">
+                        <div class="absolute inset-0 bg-cyan-400/30 rounded-md blur-sm"></div>
+                        <div class="w-10 h-10 rounded-md bg-gradient-to-br from-indigo-600 to-purple-600 border border-indigo-400/30 flex items-center justify-center relative shadow-lg shadow-indigo-800/20">
+                            <div class="absolute inset-[3px] bg-gray-900 rounded-[4px] flex items-center justify-center overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 to-purple-900/20"></div>
+                                <div class="font-bold text-lg bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">CSS</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-xl font-medium bg-gradient-to-r from-indigo-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent flex items-center">
+                        Freja's Free CSS
+                    </div>
+                </div>
 
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
-/* Centered section inside the top navigation */
-.topnav-centered a {
-  float: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* Right-aligned section inside the top navigation */
-.topnav-right {
-  float: right;
-}
-
-/* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
-@media screen and (max-width: 600px) {
-  .topnav a, .topnav-right {
-    float: none;
-    display: block;
-  }
-
-  .topnav-centered a {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-  }
-}
-
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#home" class="nav-link text-gray-300 hover:text-cyan-400 px-4 py-2 rounded-md transition-colors duration-200">Home</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-cyan-400 px-4 py-2 rounded-md transition-colors duration-200">About</a>
+                    <a href="#services" class="nav-link text-gray-300 hover:text-cyan-400 px-4 py-2 rounded-md transition-colors duration-200">Services</a>
+                    <a href="#portfolio" class="nav-link text-gray-300 hover:text-cyan-400 px-4 py-2 rounded-md transition-colors duration-200">Portfolio</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-cyan-400 px-4 py-2 rounded-md transition-colors duration-200">Contact</a>
 
 
 #backToTopBtn {
