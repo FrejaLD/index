@@ -13,17 +13,275 @@ html {
 
 body { 
     font-family: "OpenSans", Helvetica, Tahoma, Arial, sans-serif;
-  background-color: #1e1e2e;
-  background-image:
-    radial-gradient(circle at 80.4% 71.3%, #5f86d2, transparent 50%),
-    radial-gradient(circle at 49.8% 21.1%, #e6c1fb, transparent 50%),
-    radial-gradient(circle at 41.5% 75.8%, #477ea6, transparent 50%);
+  background: #0f172a;
       background-size: cover;
     background-repeat: no-repeat;
   background-attachment: fixed;
     font-size: 14px;
 }
 
+#responsive-nav {
+  display: none;
+  + label {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 16px;
+    font-size: 20px;
+    background: white;
+    box-shadow: $shadow;
+    cursor: pointer;
+    z-index: 3;
+    transition: background 0.3s $cubic, color 0.3s $cubic;
+  }
+}
+
+aside {
+  position: fixed;
+  transition: transform 0.3s $cubic;
+  background: #0c1222;
+    color: #fff;
+    border-right: solid 1px #334155;
+  width: 260px;
+  height: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.logo-area {
+  width: 100%;
+  height: 50px;
+  border-bottom: solid 1px #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #AF9FA5;
+}
+
+/* Links */
+a:link, 
+a:visited, 
+a:active{
+	color: #fff !important;
+	text-decoration: none;
+    text-shadow: none;
+	font-weight: bold;
+}
+
+/* Links Hover */
+a:hover,
+a:focus {
+	color: #9d7b7b !important;
+	text-decoration: none;
+	font-weight: bold;
+    text-shadow: none;
+}
+
+nav {
+  width: 100%;
+  height: 100%;
+  > a, label {
+    padding: 20px 24px;
+  }
+  a, label {
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    transition: none;
+    &:hover {
+      background: lighten(grey, 30%);
+    }
+  }
+  
+  label {
+    &:before, &:after {
+      content: '';
+      float: right;
+      width: 2px;
+      height: 7px;
+      background: grey;
+      transform-origin: 0 0;
+      margin-top: 4px;
+      transition: transform 0.3s $cubic;
+    }
+    &:before {
+      transform: rotate(50deg);
+    }
+    &:after {
+      transform: rotate(-50deg) translate(-6px, 1px);
+    }
+  }
+}
+
+.wrap {
+  transform: scaleY(0);
+  transform-origin: 0 0;
+  transition: transform 0.3s $cubic;
+  a {
+    padding: 0 24px 0 34px;
+    height: 0;
+    font-weight: 400;
+    transition: height 0.3s $cubic;
+    display: flex;
+    align-items: center;
+  }
+}
+
+input[id^="nav-collapsible"] {
+  display: none;
+  &:checked {
+    + label {
+      transition: background 0.2s $cubic, color 0.2s $cubic;
+      background: lighten($grey, 30%);
+      &:before {
+        transform: rotate(-230deg) translate(5px, -5px);
+      }
+      &:after {
+        transform: rotate(50deg) translate(5px, -2px);
+      }
+    }
+    ~ .wrap {
+      height: auto;
+      transform: scaleY(1);
+      a {
+        height: 54px;
+      }
+    }
+  }
+}
+
+main {
+  width: calc(100% - 260px);
+  margin-left: 260px;
+  height: 100%;
+}
+
+@media screen and (max-width: 1120px) {
+  aside {
+    transform: translateX(-100%);
+  }
+  main {
+    width: 100%;
+    margin-left: 0;
+  }
+  #responsive-nav {
+    + label {
+      display: block;
+    }
+    &:checked {
+      + label {
+        color: white;
+        background: $greenSea;
+      }
+      ~ aside {
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  aside {
+    width: 100%;
+  }
+  #responsive-nav {
+    + label {
+      padding: 22px;
+      font-size: 24px;
+    }
+  }
+}
+
+.container{
+    display: table;
+  min-width: 95% !important;
+    max-width: 100%;
+    padding: 20px;
+  background: none !important;
+  color: #bfbfbf;
+    border: none;
+    box-shadow: none !important;
+    border-radius: 10px !important;
+}
+
+.text-box{
+    display: table;
+  min-width: 95% !important;
+    max-width: 100%;
+    padding: 20px;
+  background: #1e293b !important;
+  color: #bfbfbf;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(209, 213, 219, .14) 0px 0px 0px 1px inset !important;
+    border-radius: 10px !important;
+}
+
+/* CARD */
+
+section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 80px 40px 40px 80px;
+}
+
+.card {
+  width: min(100%, 500px);
+  background: #1e293b;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+    border: solid 1px #ffffff26 !important;
+  z-index: 5;
+}
+
+.card > img {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border-radius: 10px 10px 0 0;
+    border-bottom: solid 1px #ffffff26 !important;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 15px 20px;
+}
+
+.card-content > p {
+  margin-bottom: 10px;
+}
+
+.card-content > p:nth-child(1) {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1e40af;
+}
+
+.card-content > p:nth-child(2) {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+@media (max-width: 900px) {
+  section {
+     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  section {
+     grid-template-columns: repeat(1, 1fr);
+  }
+}
 
 hr {
   background-color: #0000;
@@ -100,22 +358,10 @@ hr.style2:before {
 }
 
 
-
-.container{
-    display: block;
-  min-width: 90% !important;
-    max-width: 100%;
-    padding: 20px;
-  background: #2a313ba6 !important;
-  color: #bfbfbf;
-    border: 1px solid #ffffff42;
-    box-shadow: none !important;
-    border-radius: 5px !important;
-}
-
 @media screen and (max-width: 800px) {
   .container{
     width: 100% !important;
+      border-radius: 0px !important;
   }
 }
 
@@ -214,73 +460,6 @@ hr.style2:before {
     width: auto;
   }
 }
-
-
-<div class="bg-black text-white font-['Space_Grotesk'] overflow-x-hidden">
-    <!-- Background elements -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-20 left-10 w-96 h-96 bg-indigo-900/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-10 right-10 w-80 h-80 bg-purple-900/10 rounded-full blur-3xl"></div>
-        <div class="absolute top-40 right-20 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl"></div>
-        
-        <!-- Decorative grid lines -->
-        <div class="absolute inset-0 grid grid-cols-12 opacity-5 pointer-events-none">
-            <div class="border-r border-cyan-500"></div>
-            <div class="border-r border-cyan-500"></div>
-            <div class="border-r border-cyan-500"></div>
-            <div class="border-r border-cyan-500"></div>
-            <div class="border-r border-cyan-500"></div>
-            <div class="border-r border-cyan-500"></div>
-            <div class="border-r border-cyan-500"></div>
-            <div class="border-r border-cyan-500"></div>
-            <div class="border-r border-cyan-500"></div>
-            <div class="border-r border-cyan-500"></div>
-            <div class="border-r border-cyan-500"></div>
-            <div class="border-r border-cyan-500"></div>
-        </div>
-        <div class="absolute inset-0 grid grid-rows-12 opacity-5 pointer-events-none">
-            <div class="border-b border-cyan-500"></div>
-            <div class="border-b border-cyan-500"></div>
-            <div class="border-b border-cyan-500"></div>
-            <div class="border-b border-cyan-500"></div>
-            <div class="border-b border-cyan-500"></div>
-            <div class="border-b border-cyan-500"></div>
-            <div class="border-b border-cyan-500"></div>
-            <div class="border-b border-cyan-500"></div>
-            <div class="border-b border-cyan-500"></div>
-            <div class="border-b border-cyan-500"></div>
-            <div class="border-b border-cyan-500"></div>
-            <div class="border-b border-cyan-500"></div>
-        </div>
-    </div>
-
-    <!-- Navigation Bar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-gray-900/70 backdrop-blur-lg border-b border-cyan-500/30 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <div class="relative mr-2">
-                        <div class="absolute inset-0 bg-cyan-400/30 rounded-md blur-sm"></div>
-                        <div class="w-10 h-10 rounded-md bg-gradient-to-br from-indigo-600 to-purple-600 border border-indigo-400/30 flex items-center justify-center relative shadow-lg shadow-indigo-800/20">
-                            <div class="absolute inset-[3px] bg-gray-900 rounded-[4px] flex items-center justify-center overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 to-purple-900/20"></div>
-                                <div class="font-bold text-lg bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">CSS</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-xl font-medium bg-gradient-to-r from-indigo-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent flex items-center">
-                        Freja's Free CSS
-                    </div>
-                </div>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-1">
-                    <a href="#home" class="nav-link text-gray-300 hover:text-cyan-400 px-4 py-2 rounded-md transition-colors duration-200">Home</a>
-                    <a href="#about" class="nav-link text-gray-300 hover:text-cyan-400 px-4 py-2 rounded-md transition-colors duration-200">About</a>
-                    <a href="#services" class="nav-link text-gray-300 hover:text-cyan-400 px-4 py-2 rounded-md transition-colors duration-200">Services</a>
-                    <a href="#portfolio" class="nav-link text-gray-300 hover:text-cyan-400 px-4 py-2 rounded-md transition-colors duration-200">Portfolio</a>
-                    <a href="#contact" class="nav-link text-gray-300 hover:text-cyan-400 px-4 py-2 rounded-md transition-colors duration-200">Contact</a>
 
 
 #backToTopBtn {
