@@ -5,7 +5,6 @@ setTimeout(() => {
   const closeBtn = document.querySelector(".close-btn");
   const cardImages = document.querySelectorAll(".card_image img");
 
-  // Only run if the modal HTML elements actually exist on screen
   if (modal && closeBtn) {
     
     // Open modal on card image click
@@ -21,14 +20,18 @@ setTimeout(() => {
       modal.style.display = "none";
     });
 
-    // Close modal when clicking background overlay
-    modal.addEventListener("click", () => {
-  modal.style.display = "none";
+    // Close modal when clicking the dark background overlay
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
       }
     });
+
+    // NEW: Close modal when clicking directly on the expanded image
+    modalImg.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
     
-    console.log("Lightbox successfully initialized!");
-  } else {
-    console.error("Could not initialize: Lightbox HTML elements missing from panel.");
+    console.log("Lightbox successfully initialized with image-close function!");
   }
 }, 200);
