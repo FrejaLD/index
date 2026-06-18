@@ -15,11 +15,12 @@ backToTopButton.addEventListener("click", () => {
   });
 });
 
-
 const modal = document.getElementById("lightboxModal");
 const modalImg = document.getElementById("modalImg");
 const closeBtn = document.querySelector(".close-btn");
-const cardImages = document.querySelectorAll(".card-image img");
+
+// Corrected selector using underscores to match the CodePen HTML
+const cardImages = document.querySelectorAll(".card_image img");
 
 // Open modal when any card image is clicked
 cardImages.forEach(img => {
