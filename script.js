@@ -29,3 +29,30 @@ function auto_grow(element) {
   element.style.height = "5px";
   element.style.height = (element.scrollHeight) + "px";
 }
+
+
+
+
+document.querySelectorAll('.copy-icon-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const targetId = button.getAttribute('data-target');
+    const textarea = document.getElementById(targetId);
+    const icon = button.querySelector('.icon-state');
+    
+    navigator.clipboard.writeText(textarea.value)
+      .then(() => {
+        // Change icon and add green styling class
+        icon.textContent = 'check';
+        button.classList.add('copied');
+        
+        // Reset back to original state after 2 seconds (2000ms)
+        setTimeout(() => {
+          icon.textContent = 'content_copy';
+          button.classList.remove('copied');
+        }, 2000);
+      })
+      .catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
+  });
+});
