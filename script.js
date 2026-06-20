@@ -33,22 +33,33 @@ function auto_grow(element) {
 
 
 
-const textarea = document.getElementById('myTextarea');
-const copyBtn = document.getElementById('copyBtn');
+const copyButtons = document.querySelectorAll('.copy-btn');
 
-copyBtn.addEventListener('click', async () => {
-  if (!textarea.value.trim()) return;
+copyButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Get the target textarea ID from the data-target attribute
+    const targetId = button.getAttribute('data-target');
+    const textarea = document.getElementById(targetId);
 
-  try {
-    await navigator.clipboard.writeText(textarea.value);
-    
-    // Add success class to trigger CSS background swap
-    copyBtn.classList.add('success');
-    
-    setTimeout(() => {
-      copyBtn.classList.remove('success');
-    }, 2000);
-  } catch (err) {
-    console.error('Copy failed', err);
-  }
+    if (textarea) {
+      // Use the Clipboard API to copy the text
+      navigator.clipboard.writeText(textarea.value)
+        .then(() => {
+          // Success: Provide temporary visual feedback
+          const originalText = button.textContent;
+          button.textContent = 'Copied!';
+          button.classList.add('copied'); // Optional for CSS styling
+
+          // Reset button text after 2 seconds
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.classList.remove('copied');
+          }, 2000);
+        })
+        .catch(err => {
+          console.error('Failed to copy text: ', err);
+          alert('Could not copy text. Please try manually.');
+        });
+    }
+  });
 });
