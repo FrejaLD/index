@@ -33,31 +33,27 @@ function auto_grow(element) {
 
 
 
-const copyButtons = document.querySelectorAll('.copy-btn');
-
-copyButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const targetId = button.getAttribute('data-target');
-    const textarea = document.getElementById(targetId);
-    const icon = button.querySelector('i'); // Find the icon inside this button
-
-    if (textarea && icon) {
-      navigator.clipboard.writeText(textarea.value)
-        .then(() => {
-          // 1. Swap to checkmark icon
-          icon.className = 'fa-solid fa-check';
-          button.classList.add('success'); // Optional: for green styling
-
-          // 2. Revert back to copy icon after 2 seconds
-          setTimeout(() => {
-            icon.className = 'fa-regular fa-copy';
-            button.classList.remove('success');
-          }, 2000);
-        })
-        .catch(err => {
-          console.error('Copy failed: ', err);
-        });
-    }
-  });
-});
+function copyText() {
+  // Get the textarea element
+  const textArea = document.getElementById("myTextarea");
+  const btn = document.getElementById("copyBtn");
+  
+  // Use the modern Clipboard API
+  navigator.clipboard.writeText(textArea.value)
+    .then(() => {
+      // Visual feedback: change button text temporarily
+      btn.textContent = "Copied!";
+      btn.classList.add("success");
+      
+      // Reset button after 2 seconds
+      setTimeout(() => {
+        btn.textContent = "Copy Text";
+        btn.classList.remove("success");
+      }, 2000);
+    })
+    .catch(err => {
+      console.error("Failed to copy text: ", err);
+      alert("Fallback: Please select and copy manually.");
+    });
+}
 
