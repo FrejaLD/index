@@ -142,7 +142,7 @@ img {
 .card_content {
   padding: 1rem;
   background: #232f44;
-    height: 350px;
+    height: 360px;
 }
 
 .card_title {
@@ -170,11 +170,11 @@ img {
 
 .container{
     display: table;
-  min-width: 100% !important;
+    background: #fff !important;
+    min-width: 100% !important;
     max-width: 100%;
     padding: 20px;
-  background: none !important;
-  color: #bfbfbf;
+    color: #bfbfbf;
     border: none;
     box-shadow: none !important;
     border-radius: 10px !important;
@@ -248,25 +248,21 @@ img {
   max-width: 350px;
 }
 
-textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
 
 button {
-  padding: 8px 12px;
-  background-color: #007bff;
-  color: white;
+  padding: 2px 7px;
+  background: #B786FB;
   border: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; 
+  color: #fff;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #78d0f9;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 /* Success class triggered by JS */
